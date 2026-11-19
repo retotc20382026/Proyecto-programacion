@@ -7,7 +7,7 @@
 #endif
 
 
-
+#include "LecturaArchivo.h"
 
 int main(int argc, char* argv[]){
     std::locale::global(std::locale(""));
@@ -17,6 +17,6 @@ int main(int argc, char* argv[]){
     SetConsoleCP(1252);
     SetConsoleOutputCP(1252);
 #endif
-
+    LecturaArchivo::base = LecturaArchivo::directorioBase(argc > 0 ? argv[0] : nullptr);
     return Menu::Correr(argc, argv);
 }

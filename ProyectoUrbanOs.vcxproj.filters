@@ -48,6 +48,9 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\caracteristicas</Filter>
     </ClCompile>
+    <ClCompile Include="LecturaArchivo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dijkstra.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LecturaArchivo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

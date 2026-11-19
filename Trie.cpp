@@ -6,6 +6,7 @@
 #include <clocale>
 #include <unordered_map>
 
+#include "LecturaArchivo.h"
 
 
 const wstring Trie::CARACTERES = L"ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚáéíóú";
@@ -71,7 +72,7 @@ vector<wstring> Trie::autocompletar(TrieNodo* raiz, const wstring& prefijo) {
 
 
 Trie::Trie(wstring arch) {
-    this->clls = { L"AA",L"BA",L"CCD",L"LLÑ",L"ZWZ" };
+    this->clls = LecturaArchivo::leerTrie(arch);
     TrieNodo* raiz = new TrieNodo();
     for (const auto& c : this->clls) {
         insertar(raiz, c);

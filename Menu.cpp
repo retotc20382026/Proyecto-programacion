@@ -126,13 +126,13 @@ int Menu::Correr(int argc, char* argv[]) {
         respuesta -= 48;
         switch (respuesta) {
         case 1: {
-            Trie* tr = new Trie(L"");
+            Trie* tr = new Trie(L"trie.txt");
             delete tr;
             esperarenter();
             break;
         }
         case 2: {
-              Dijkstra* dj = new Dijkstra(L"");
+              Dijkstra* dj = new Dijkstra(L"dijkstra.txt");
               delete dj;
               esperarenter();
               break;

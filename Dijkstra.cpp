@@ -2,7 +2,7 @@
 
 
 
-
+#include "LecturaArchivo.h"
 
 
 
@@ -63,28 +63,21 @@ bool Dijkstra::dijkstramtd(const vector<vector<pair<int, int>>>& ady, const int 
 
 Dijkstra::Dijkstra(wstring arch) {
     int vertices, aristas, inic, fin;
-    cin >> vertices;
-    cin >> aristas;
-    vector<vector<pair<int, int>>> ady(vertices);
-    for (int i = 0; i < aristas; i++) {
-        int orig, dest, peso;
-        cin >> orig >> dest >> peso;
-        ady[orig].push_back({ dest, peso });
-        ady[dest].push_back({ orig, peso });
-    }
-    cin >> inic;
-    cin >> fin;
-    vector<int> ruta;
-    int costo = 0;
-    if (dijkstramtd(ady, vertices, inic, fin, ruta, costo)) {
-        cout << "Ruta: ";
-        for (size_t i = 0; i < ruta.size(); i++) {
-            cout << ruta[i];
-            if (i + 1 < ruta.size()) cout << " -> ";
+    vector<vector<pair<int, int>>> ady;
+    if (LecturaArchivo::leerDijkstra(arch, vertices, aristas, ady)) {
+        cin >> inic >> fin;
+        vector<int> ruta;
+        int costo = 0;
+        if (dijkstramtd(ady, vertices, inic, fin, ruta, costo)) {
+            cout << "Ruta: ";
+            for (size_t i = 0; i < ruta.size(); i++) {
+                cout << ruta[i];
+                if (i + 1 < ruta.size()) cout << " -> ";
+            }
+            cout << "\nCosto total: " << costo << "\n";
         }
-        cout << "\nCosto total: " << costo << "\n";
-    }
-    else {
-        cout << "No hay ruta";
+        else {
+            cout << "No hay ruta";
+        }
     }
 }
